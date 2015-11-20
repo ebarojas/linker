@@ -1,3 +1,5 @@
+# Welcome to Linker, job hunting made easy: a lovechild between Tinder and LinkedIn
+
 # Initial setup of Vagrant Base, first time cloning ->
 This steps only ever needs to be done once. Once the precise64 box is installed on a system the remaining steps refer to that same box regardless of the project.
 
