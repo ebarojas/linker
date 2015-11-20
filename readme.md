@@ -1,4 +1,4 @@
-Welcome to Linker, job hunting made easy: a lovechild between Tinder and LinkedIn
+# Welcome to Linker, job hunting made easy: a lovechild between Tinder and LinkedIn
 
 # Initial setup of Vagrant Base
 
@@ -12,29 +12,40 @@ Download VirtualBox from http://www.virtualbox.org/wiki/Downloads, install the p
 Download Vagrant 2 or higher from http://downloads.vagrantup.com/, install the package.
 
 vagrant up
+
 vagrant ssh
+
 cd /vagrant
 
 sudo apt-get install build-essential
+
 wget http://nodejs.org/dist/v0.8.16/node-v0.8.16.tar.gz
+
 tar -xzf node-v0.8.16.tar.gz
+
 cd node-v0.8.16/
+
 ./configure
+
 make
+
 sudo make install
 
 # Update
 sudo npm cache clean -f
+
 sudo npm install -g n
+
 sudo n stable
 
+# Bower
 sudo npm install -g bower
+
 sudo pip install django-bower
 
 sudo apt-get update
 
 
-install bower + bootstrap
 
 
 
