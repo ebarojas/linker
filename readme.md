@@ -17,6 +17,10 @@ vagrant ssh
 
 cd /vagrant
 
+You are ready to start!
+
+# Install Node
+
 sudo apt-get install build-essential
 
 wget http://nodejs.org/dist/v0.8.16/node-v0.8.16.tar.gz
