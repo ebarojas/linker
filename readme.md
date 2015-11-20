@@ -40,3 +40,14 @@ sudo n stable
 sudo npm install -g bower
 
 sudo pip install django-bower
+
+Then, on your project folder, run:
+
+python manage.py bower install   --- You should have bootstrap + jquery now :-)
+
+# Runserver
+Apply your migrations, then:
+
+python manage.py runserver [::]:3000
+
+in your browser, go to 'localhost:3000'
