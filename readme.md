@@ -12,8 +12,6 @@ Download Vagrant 2 or higher from http://downloads.vagrantup.com/, install the p
 vagrant up
 
 vagrant ssh
-<<<<<<< HEAD
-
 cd /vagrant
 
 You are ready to start!
@@ -43,13 +41,22 @@ sudo n stable
 # Bower
 sudo npm install -g bower
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a52b4623906e503d2e6c754cf3d7ce43b5140ff5
 
 sudo pip install django-bower
 
-sudo apt-get update
+Then, on your project folder, run:
 
+python manage.py bower install   --- You should have bootstrap + jquery now :-)
 
+# Runserver
+Apply your migrations, then:
 
+<<<<<<< HEAD
+=======
+python manage.py runserver [::]:3000
+>>>>>>> a52b4623906e503d2e6c754cf3d7ce43b5140ff5
 
-
-sudo pip install django-bower
+in your browser, go to 'localhost:3000'
