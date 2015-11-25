@@ -12,12 +12,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   # 1080  - MailCatcher
   # 3000  - Rails
+  # 8000  - Django
   # 3005  - BrowserSync
   # 5432  - Postgres
   # 6379  - Redis
   # 35729 - Livereload
   # 5316  - Jasmine
-  [1080, 3000, 3005, 5432, 6379, 5316].each do |p|
+  # 8080  - Linked_API
+
+  [1080, 3000, 3005, 5432, 6379, 5316, 8000, 8080].each do |p|
     config.vm.network :forwarded_port, guest: p, host: p
   end
 
