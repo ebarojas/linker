@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djangobower',
+    'linkedin_app',
 )
 
 MIDDLEWARE_CLASSES = (
