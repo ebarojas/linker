@@ -6,9 +6,12 @@ class User(AbstractBaseUser):
     first_name = models.CharField(max_length=80)
     last_name = models.CharField(max_length=80)
     email = models.EmailField(max_length=320)
-    # profile_picture = models.ImageField()
     phone = models.CharField(max_length=320)
     location = models.CharField(max_length=320)
+    linkedin_id = models.CharField(max_length=255)
+    headline = models.CharField(max_length=255)
+    num_connections = models.IntegerField()
+    picture_url = models.CharField(max_length=320)
 
     USERNAME_FIELD = 'email'
 
