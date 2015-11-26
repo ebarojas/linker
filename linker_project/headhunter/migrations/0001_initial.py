@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+import datetime
 
 
 class Migration(migrations.Migration):
@@ -11,7 +12,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Unemployed',
+            name='Headhunter',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('password', models.CharField(max_length=128, verbose_name='password')),
@@ -30,5 +31,19 @@ class Migration(migrations.Migration):
             options={
                 'abstract': False,
             },
+        ),
+        migrations.CreateModel(
+            name='Vacant',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('posted_date', models.DateTimeField(default=datetime.datetime.now)),
+                ('location_lat', models.FloatField()),
+                ('location_lon', models.FloatField()),
+                ('name', models.CharField(max_length=320)),
+                ('salary', models.FloatField()),
+                ('details', models.FloatField(max_length=500)),
+                ('picture', models.ImageField(upload_to=b'')),
+                ('headhunter', models.ForeignKey(to='headhunter.Headhunter')),
+            ],
         ),
     ]

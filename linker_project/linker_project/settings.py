@@ -39,6 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'djangobower',
     'unemployed',
+    'headhunter',
+    'match',
 )
 
 MIDDLEWARE_CLASSES = (
