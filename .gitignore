@@ -1,2 +1,11 @@
 .vagrant/
+linker_project/*.pyc
 ../.DS_STORE
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+media
+
