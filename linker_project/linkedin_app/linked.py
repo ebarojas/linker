@@ -24,3 +24,4 @@ application = linkedin.LinkedInApplication(token='AQX-FBbKwHxA2wBpLY_wvdHvoZrQK8
 # print application.get_profile(selectors=['id', 'first-name', 'last-name', 'location', 'distance', 'num-connections', 'skills', 'educations'])
 print application.get_profile()
 
+print application.get_companies(company_ids=[1035], universal_names=['apple'], selectors=['name'], params={'is-company-admin': 'true'})

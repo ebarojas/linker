@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'djangobower',
     'linkedin_app',
+    'socket_server',
 )
 
 MIDDLEWARE_CLASSES = (
