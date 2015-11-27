@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from headhunter.views import HeadhunterHome
+from unemployed.views import UnemployedHome
+from match.views import MatchHome
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^headhunter/home', HeadhunterHome.as_view(),name = "headhunter_home"),
+    url(r'^unemployed/home', UnemployedHome.as_view(),name = "unemployed_home"),
+    url(r'^match/home', MatchHome.as_view(),name = "match_home"),
 ]
