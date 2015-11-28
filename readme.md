@@ -48,6 +48,11 @@ python manage.py bower install   --- You should have bootstrap + jquery now :-)
 # Runserver
 Apply your migrations, then:
 
-python manage.py runserver [::]:3000
+python3 manage.py runserver [::]:3000
 
 in your browser, go to 'localhost:3000'
+
+# Update to Python 3
+Directly after vagrant shh command -
+
+sudo apt-get install python3
