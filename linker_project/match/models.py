@@ -3,13 +3,13 @@ from datetime import datetime
 
 # Create your models here.
 class Match(models.Model):
-    headhunter = models.ForeignKey('headhunter.Headhunter')
+    vacant = models.ForeignKey('headhunter.Vacant')
     unemployed = models.ForeignKey('unemployed.Unemployed')
     date = models.DateTimeField(default=datetime.now)
 
 
-class HeadhunterLike(models.Model):
-    headhunter = models.ForeignKey('headhunter.Headhunter')
+class VacantLike(models.Model):
+    vacant = models.ForeignKey('headhunter.Vacant')
     unemployed = models.ForeignKey('unemployed.Unemployed')
     date = models.DateTimeField(default=datetime.now)
 
