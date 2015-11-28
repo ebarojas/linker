@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from headhunter.views import HeadhunterHome
-from unemployed.views import UnemployedHome
-from match.views import MatchHome
+from headhunters.views import HeadhunterHome
+from unemployeds.views import UnemployedHome
+from matches.views import MatchHome
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),

@@ -38,9 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djangobower',
-    'unemployed',
-    'headhunter',
-    'match',
+    'unemployeds',
+    'headhunters',
+    'matches',
 )
 
 MIDDLEWARE_CLASSES = (
