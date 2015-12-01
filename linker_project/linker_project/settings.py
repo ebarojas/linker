@@ -38,9 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djangobower',
-    'unemployed',
-    'headhunter',
-    'match',
+    'unemployeds',
+    'headhunters',
+    'matches',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -103,16 +103,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-
-STATIC_URL = '/static/'
 
 BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'components')
 
@@ -127,3 +123,9 @@ BOWER_INSTALLED_APPS = (
     'underscore',
     'bootstrap',
 )
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+STATIC_URL = '/static/'

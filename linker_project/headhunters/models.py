@@ -9,7 +9,7 @@ class Headhunter(User):
 
 
 class Vacant(models.Model):
-    headhunter = models.ForeignKey('headhunter.Headhunter')
+    headhunter = models.ForeignKey('headhunters.Headhunter')
     posted_date = models.DateTimeField(default=datetime.now)
     location_lat = models.FloatField()
     location_lon = models.FloatField()

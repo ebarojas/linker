@@ -1,5 +1,5 @@
 from django.contrib import admin
-from unemployed import models
+from unemployeds import models
 
 # Register your models here.
 admin.site.register(models.Unemployed)

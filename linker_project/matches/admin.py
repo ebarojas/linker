@@ -1,5 +1,5 @@
 from django.contrib import admin
-from match import models
+from matches import models
 
 # Register your models here.
 admin.site.register(models.Match)
