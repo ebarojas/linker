@@ -27,5 +27,4 @@ urlpatterns = [
     url(r'^users/$', HeadhunterHome.as_view(), name = "headhunter_home"),
     url(r'^vacants/$', UnemployedHome.as_view(), name = "unemployed_home"),
     url(r'^matches/$', MatchHome.as_view(), name = "match_home"),
-    url(r'^contacts/$', listing, name = "contacts"),
 ]

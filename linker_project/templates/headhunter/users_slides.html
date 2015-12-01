@@ -1,1 +1,25 @@
-<h1>Headhunter</h1>
+<h1>Vacants</h1>
+
+{% for vacant in vacants %}
+    {# Each "vacant" is a vacant model object. #}
+    {{ vacant.full_name|upper }}<br />
+    {{ vacant.name }} # The name of the vacant
+
+    ...
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if vacants.has_previous %}
+            <a href="?page={{ vacants.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ vacants.number }} of {{ vacants.paginator.num_pages }}.
+        </span>
+
+        {% if vacants.has_next %}
+            <a href="?page={{ vacants.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
