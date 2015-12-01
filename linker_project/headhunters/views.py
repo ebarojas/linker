@@ -5,4 +5,4 @@ from django.views.generic import View
 
 class HeadhunterHome(View):
     def get(self,request):
-        return render(request, 'headhunter/home.html')
+        return render(request, 'headhunter/users_slides.html')

@@ -1,0 +1,14 @@
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+    .profile-picture {
+        width: 50%;
+    }
+
+    .vacant-logo {
+        width: 85%;
+    }
+
+    .slide {
+        text-align: center;
+    }
+}
