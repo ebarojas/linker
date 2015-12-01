@@ -1,0 +1,17 @@
+body {
+    background: #EFEFEF;    
+}
+
+
+/* Navigation bar */
+
+.navbar-default {
+    background-color: #FFFFFF;
+    border-radius: 0;
+    border: none;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 18px;
+}
