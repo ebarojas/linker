@@ -19,7 +19,8 @@ from headhunters.views import HeadhunterHome
 from unemployeds.views import UnemployedHome
 from matches.views import MatchHome
 
-from headhunters.views import listing
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -28,3 +29,7 @@ urlpatterns = [
     url(r'^vacants/$', UnemployedHome.as_view(), name = "unemployed_home"),
     url(r'^matches/$', MatchHome.as_view(), name = "match_home"),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

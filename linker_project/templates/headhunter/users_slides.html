@@ -1,26 +1,81 @@
-<h1>Vacants</h1>
 
-{% for vacant in vacants %}
-    {# Each "vacant" is a vacant model object. #}
-    {{ vacant.full_name|upper }}<br />
-    {{ vacant.name }} # The name of the vacant<br />
-    {{ vacant.salary }} # The salary of the vacant<br />
-    {{ vacant.details }} # The details of the vacant
-    ...
-{% endfor %}
+{% extends 'base.html' %}
 
-<div class="pagination">
-    <span class="step-links">
-        {% if vacants.has_previous %}
-            <a href="?page={{ vacants.previous_page_number }}">previous</a>
-        {% endif %}
+{% block title %} Users {% endblock %}
 
-        <span class="current">
-            Page {{ vacants.number }} of {{ vacants.paginator.num_pages }}.
-        </span>
 
-        {% if vacants.has_next %}
-            <a href="?page={{ vacants.next_page_number }}">next</a>
-        {% endif %}
-    </span>
-</div>
+{% block body %}
+    {% include 'nav.html' %}
+
+    {% for vacant in vacants %}
+        <div class="slide" style="text-align:center">
+            <div class="slide-container">
+                <div class="row">
+                    <div>
+                        <img class="profile-picture" src="{{ vacant.picture.url }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <h3>{{ vacant.name }}</h3>
+                        <h4>Culiacán, Sinaloa</h4>
+                        <!-- <h4>{{ vacant.full_location }}</h4> -->
+                    </div>
+                </div>
+
+                <div class="row profile-details">
+                    <h4>Scrum Hacker</h4>
+                    <!-- <h4>{{ vacant.headline }}</h4> -->
+                    <p>
+                        {{ vacant.details }}
+                    </p>
+                </div>
+
+                <div class="row profile-skills">
+                    <h4>Habilidades</h4>
+                    <span class="skill">Scrum</span>
+                    <span class="skill">Angularjs</span>
+                    <span class="skill">Elixir</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-buttons">
+            <div class="col-md-12">
+                <div class="col-md-6 col-xs-6">
+                  {% if vacants.has_next %}
+                    <a href="?page={{ vacants.next_page_number }}" class="bg-btn dislike-btn glyphicon glyphicon-remove"></a>
+                  {% endif %}
+                </div>
+                <div class="col-md-6 col-xs-6">
+                  {% if vacants.has_next %}
+                    <a href="?page={{ vacants.next_page_number }}"><span class="bg-btn like-btn glyphicon glyphicon-ok"></span></a>
+                  {% endif %}
+
+                </div>
+            </div>
+        </div>
+
+
+    {% endfor %}
+
+    <div class="container">
+        <!-- Left the pagination part just for reference -->
+        <div class="pagination">
+            <span class="step-links">
+                {% if vacants.has_previous %}
+                    <a href="?page={{ vacants.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ vacants.number }} of {{ vacants.paginator.num_pages }}.
+                </span>
+
+                {% if vacants.has_next %}
+                    <a href="?page={{ vacants.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+
+{% endblock %}
