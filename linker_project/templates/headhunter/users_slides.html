@@ -3,8 +3,9 @@
 {% for vacant in vacants %}
     {# Each "vacant" is a vacant model object. #}
     {{ vacant.full_name|upper }}<br />
-    {{ vacant.name }} # The name of the vacant
-
+    {{ vacant.name }} # The name of the vacant<br />
+    {{ vacant.salary }} # The salary of the vacant<br />
+    {{ vacant.details }} # The details of the vacant
     ...
 {% endfor %}
 
