@@ -4,21 +4,21 @@ from django.views.generic import View
 from django.core.paginator import Paginator
 from django.core.paginator import EmptyPage
 from django.core.paginator import PageNotAnInteger
-from headhunters.models import Headhunter # Maybe remove this
-from headhunters.models import Vacant
+
+from unemployeds.models import Unemployed
 #from headhunter.models import
 # Create your views here.
 
 class HeadhunterHome(View):
     def get(self,request):
-        vacants = listing(request)
-        return render_to_response('headhunter/users_slides.html', {"vacants": vacants})
+        users = listing(request)
+        return render_to_response('headhunter/users_slides.html', {"users": users})
 
 
 
 def listing(request):
-    contact_list = Vacant.objects.all()
-    paginator = Paginator(contact_list, 1) # Show 1 contacts per page
+    user_list = Unemployed.objects.all()
+    paginator = Paginator(user_list, 1) # Show 1 contacts per page
 
     page = request.GET.get('page')
     try:
