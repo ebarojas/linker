@@ -15,5 +15,8 @@ class Vacant(models.Model):
     location_lon = models.FloatField()
     name = models.CharField(max_length=320)
     salary = models.FloatField()
-    details = models.FloatField(max_length=500)
+    details = models.CharField(max_length=500)
     picture = models.ImageField()
+
+    def __str__(self):
+        return self.name
