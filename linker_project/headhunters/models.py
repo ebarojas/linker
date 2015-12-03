@@ -2,7 +2,7 @@ from django.db import models
 from users.models import User
 from datetime import datetime
 
-# Create your models here.
+
 class Headhunter(User):
     def __str__(self):
         return "{} {}".format(self.first_name, self.last_name)

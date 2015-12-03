@@ -95,6 +95,7 @@ h5{
     color: #fff
 }
 
+
 .like-btn {
     background: #4DA25F;
 }
@@ -111,6 +112,10 @@ h5{
     background: #007719;
 }
 
+.disabled,
+.disabled:hover {
+  background: #C1C1C1;
+}
 
 /*  Match   */
 .match-views {
