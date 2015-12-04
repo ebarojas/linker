@@ -9,4 +9,4 @@ from unemployeds.models import Unemployed
 class MatchHome(View):
     def get(self,request):
         matches = Match.objects.all()
-        return render(request, 'match/home_match.html',{'matches': matches})
+        return render(request, 'match/home_match.html', {'matches': matches})
