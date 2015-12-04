@@ -1,8 +1,9 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block main %}
+{% block title %} Login {% endblock %}
+
+{% block body %}
     <h1>Hey Yo</h1>
-    hhhhhhhh
     <div id="login">
         <form class="form-horizontal" name="LoginForm" action="/login/" method="post">
         {% csrf_token %}
