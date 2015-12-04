@@ -18,7 +18,7 @@ from django.contrib import admin
 from headhunters.views import HeadhunterHome
 from unemployeds.views import UnemployedHome
 from matches.views import MatchHome
-
+from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^users/$', HeadhunterHome.as_view(), name = "headhunter_home"),
     url(r'^vacants/$', UnemployedHome.as_view(), name = "unemployed_home"),
     url(r'^matches/$', MatchHome.as_view(), name = "match_home"),
+    url(r'^login/$', 'example.views.login_user'),
 ]
 
 
