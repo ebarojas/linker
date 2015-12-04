@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 # from birthdayreminder.models import *
@@ -12,6 +12,10 @@ from django.core.paginator import Paginator
 from django.core.paginator import EmptyPage
 from django.core.paginator import PageNotAnInteger
 from unemployeds.models import Unemployed
+
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.template.context_processors import csrf
 
 class HeadhunterHome(View):
     def get(self,request):
@@ -45,7 +49,7 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect('/main/')
+                return HttpResponseRedirect('/vacants/')
     return render_to_response('login.html', context_instance=RequestContext(request))
 
 # @login_required(login_url='/login/')
