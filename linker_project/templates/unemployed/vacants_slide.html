@@ -12,16 +12,16 @@
                 <div class="slide-container">
                     <div class="row">
                         <div>
-                            <img class="profile-picture" src="{{ vacant.picture.url }}">
+                            <img class="vacant-logo" src="{{ vacant.picture.url }}">
                         </div>
                         <div>
                             <h3>{{ vacant.name }}</h3>
-                            <h4>Culiacán Sinaloa</h4>
+                            <h4>{{ vacant.location }}</h4>
                         </div>
                     </div>
 
                     <div class="row profile-details">
-                        <h4>Lead software developer</h4>
+                        <h4>{{ vacant.headline }}</h4>
                         <p>
                             {{ vacant.details }}
                         </p>
@@ -41,11 +41,15 @@
                     <div class="col-md-6 col-xs-6">
                       {% if vacants.has_next %}
                         <a href="?page={{ vacants.next_page_number }}" class="bg-btn dislike-btn glyphicon glyphicon-remove"></a>
+                      {% else %}
+                        <a href="#" class="bg-btn dislike-btn glyphicon glyphicon-remove"></a>
                       {% endif %}
                     </div>
                     <div class="col-md-6 col-xs-6">
                       {% if vacants.has_next %}
                         <a href="?page={{ vacants.next_page_number }}"><span class="bg-btn like-btn glyphicon glyphicon-ok"></span></a>
+                      {% else %}
+                        <a href="#"><span class="bg-btn like-btn glyphicon glyphicon-ok"></span></a>
                       {% endif %}
 
                     </div>
