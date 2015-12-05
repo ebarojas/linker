@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 
@@ -7,6 +9,7 @@ class User(AbstractBaseUser):
     last_name = models.CharField(max_length=80)
     email = models.EmailField(max_length=320)
     phone = models.CharField(max_length=10)
+    location = models.CharField(max_length=80)
     location_lat = models.FloatField()
     location_lon = models.FloatField()
     linkedin_id = models.CharField(max_length=255)

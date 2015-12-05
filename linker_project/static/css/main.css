@@ -10,7 +10,6 @@ h5{
 }
 
 /* Navigation bar */
-
 .navbar-default {
     background-color: #FFFFFF;
     border-radius: 0;
@@ -29,7 +28,6 @@ h5{
 
 
 /* slide seccion */
-
 .slide {
     background: #fff;
     border-radius: 4px;
@@ -43,6 +41,7 @@ h5{
 
 .vacant-logo {
     width: 50%;
+    margin-top: 15px;
 }
 
 .profile-details,
@@ -83,6 +82,7 @@ h5{
     border-radius: 4px;
     padding: 30px 10px;
     margin-bottom: 10px;
+    border: none;
 }
 
 .bg-btn:hover {
