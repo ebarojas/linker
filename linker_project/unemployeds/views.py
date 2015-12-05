@@ -31,9 +31,10 @@ def listing(request):
 
     try:
         vacants = paginator.page(page)
-    except PageNotAnInteger:
+    except PageNotAnInteger: 
+        # If page is not an integer, deliver first page.
         vacants = paginator.page(1)
     except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
         vacants = paginator.page(paginator.num_pages)
-
     return vacants
