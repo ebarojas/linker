@@ -40,6 +40,8 @@
 
           <div class="slide-buttons">
               <div class="col-md-12">
+
+                  <!-- dislike -->
                   <div class="col-md-6 col-xs-6">
                     {% if users.has_next %}
                       <a href="?page={{ users.next_page_number }}" class="bg-btn dislike-btn glyphicon glyphicon-remove"></a>
@@ -47,13 +49,21 @@
                       <a href="#" class="bg-btn dislike-btn glyphicon glyphicon-remove"></a>
                     {% endif %}
                   </div>
-                  <div class="col-md-6 col-xs-6">
-                    {% if users.has_next %}
-                      <a href="?page={{ users.next_page_number }}"><span class="bg-btn like-btn glyphicon glyphicon-ok"></span></a>
-                    {% else %}
-                      <a href="#"><span class="bg-btn like-btn glyphicon glyphicon-ok"></span></a>
-                    {% endif %}
 
+                  <!-- Like -->
+                  <div class="col-md-6 col-xs-6">
+                    <form action='/users/' method="POST">
+                        {% csrf_token %}
+
+                        {% if users.has_next %}
+                          <input type="hidden" name="page" value="{{users.next_page_number}}" />
+                        {% else %}
+                          <input type="hidden" name="page" value="0">
+                        {% endif %}
+
+                        <input type="hidden" name="userId" value="{{ user.id }}" />
+                        <button type="submit" class="bg-btn like-btn glyphicon glyphicon-ok"></button>
+                    </form>
                   </div>
               </div>
           </div>
