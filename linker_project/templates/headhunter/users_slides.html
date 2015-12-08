@@ -6,53 +6,67 @@
 
 {% block body %}
     {% include 'nav.html' %}
-
     <div class="container">
-        <div class="slide" style="text-align:center">
-            <div class="slide-container">
-                <div class="row">
-                    <div>
-                        <img class="profile-picture" src="https://scontent-atl3-1.xx.fbcdn.net/hphotos-xft1/t31.0-8/12291700_507653699414379_332209883022546186_o.jpg">
-                    </div>
-                </div>
-                <div class="row">
-                    <div>
-                        <h3>Francisco Sánchez</h3> 
-                        <h4>Culiacán Sinaloa</h4> 
-                    </div>
-                </div>
+        {% for user in users %}
+          <div class="slide" style="text-align:center">
+              <div class="slide-container">
+                  <div class="row">
+                      <div>
+                          <img class="profile-picture" src="{{ user.picture_url }}">
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div>
+                          <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+                          <h4>{{ user.location }}</h4>
+                      </div>
+                  </div>
 
-                <div class="row profile-details">
-                    <h4>Lead software developer</h4>
-                    <p>
-                        In tincidunt ex leo, in lobortis arcu elementum vitae. 
-                        Donec tempor sagittis nulla, sed faucibus erat. Integer 
-                        vel sem tellus. Cum sociis natoque penatibus et magnis 
-                        dis parturient montes, nascetur ridiculus mus. Nullam 
-                        sapien enim, viverra ac finibus sed, aliquet nec magna. 
-                        Sed at lorem eget ante tristique varius id vel urna.
-                    </p>
-                </div>
+                  <div class="row profile-details">
+                      <h4>{{ user.headline }}</h4>
+                      <p>
+                          {{ user.resume }}
+                      </p>
+                  </div>
 
-                <div class="row profile-skills">
-                    <h4>Habilidades</h4>
-                    <span class="skill">Scrum</span>
-                    <span class="skill">Angularjs</span>
-                    <span class="skill">Elixir</span>
-                </div>
-            </div>
-        </div>
+                  <div class="row profile-skills">
+                      <h4>Habilidades</h4>
+                      <span class="skill">Scrum</span>
+                      <span class="skill">Angularjs</span>
+                      <span class="skill">Elixir</span>
+                  </div>
+              </div>
+          </div>
 
-        <div class="slide-buttons">
-            <div class="col-md-12">
-                <div class="col-md-6 col-xs-6">
-                    <a href="" class="bg-btn dislike-btn glyphicon glyphicon-remove"></a>
-                </div>
-                <div class="col-md-6 col-xs-6">
-                    <a href=""><span class="bg-btn like-btn glyphicon glyphicon-ok"></span></a>
-                </div>
-            </div>
-        </div>
+          <div class="slide-buttons">
+              <div class="col-md-12">
+
+                  <!-- dislike -->
+                  <div class="col-md-6 col-xs-6">
+                    {% if users.has_next %}
+                      <a href="?page={{ users.next_page_number }}" class="bg-btn dislike-btn glyphicon glyphicon-remove"></a>
+                    {% else %}
+                      <a href="#" class="bg-btn dislike-btn glyphicon glyphicon-remove"></a>
+                    {% endif %}
+                  </div>
+
+                  <!-- Like -->
+                  <div class="col-md-6 col-xs-6">
+                    <form action='/users/' method="POST">
+                        {% csrf_token %}
+
+                        {% if users.has_next %}
+                          <input type="hidden" name="page" value="{{users.next_page_number}}" />
+                        {% else %}
+                          <input type="hidden" name="page" value="0">
+                        {% endif %}
+
+                        <input type="hidden" name="userId" value="{{ user.id }}" />
+                        <button type="submit" class="bg-btn like-btn glyphicon glyphicon-ok"></button>
+                    </form>
+                  </div>
+              </div>
+          </div>
+        {% endfor %}
     </div>
-        
 {% endblock %}

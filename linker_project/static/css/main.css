@@ -13,7 +13,6 @@ h1{
 }
 
 /* Navigation bar */
-
 .navbar-default {
     background-color: #FFFFFF;
     border-radius: 0;
@@ -32,7 +31,6 @@ h1{
 
 
 /* slide seccion */
-
 .slide {
     background: #fff;
     border-radius: 4px;
@@ -46,6 +44,7 @@ h1{
 
 .vacant-logo {
     width: 50%;
+    margin-top: 15px;
 }
 
 .profile-details,
@@ -86,6 +85,7 @@ h1{
     border-radius: 4px;
     padding: 30px 10px;
     margin-bottom: 10px;
+    border: none;
 }
 
 .bg-btn:hover {
@@ -97,6 +97,7 @@ h1{
     text-decoration: none;
     color: #fff
 }
+
 
 .like-btn {
     background: #4DA25F;
@@ -114,6 +115,10 @@ h1{
     background: #007719;
 }
 
+.disabled,
+.disabled:hover {
+  background: #C1C1C1;
+}
 
 /*  Match   */
 .match-views {
