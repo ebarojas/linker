@@ -15,4 +15,11 @@
     .slide-buttons {
         height: 115px;
     }
+    .name_unemployed{
+      font-size: 18px;
+    }
+    .profile-picture-match {
+        width: 50%;
+        border-radius: 20%;
+    }
 }
