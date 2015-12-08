@@ -2,9 +2,14 @@ body {
     background: #EFEFEF;
 }
 
+hr {
+  border-bottom: 3px solid #D8D8D8;
+}
+
 span{
   text-align: center;
 }
+
 h5{
   color:#359FCC;
 }
@@ -34,10 +39,20 @@ h5{
     padding: 20px 45px 30px 30px;
 }
 
-.profile-picture {
+.page-title {
+  color: #797979;
+}
+
+.profile-picture,
+.public-profile-picture {
     width: 30%;
     border-radius: 50%;
 }
+
+.public-profile-picture {
+  border-radius: 20%;
+}
+
 
 .vacant-logo {
     width: 50%;

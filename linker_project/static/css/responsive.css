@@ -15,4 +15,8 @@
     .slide-buttons {
         height: 115px;
     }
+
+    .page-title {
+        font-size: 20px;
+    }
 }
