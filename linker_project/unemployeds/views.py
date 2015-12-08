@@ -5,8 +5,14 @@ from django.views.generic import View
 from django.core.paginator import Paginator
 from django.core.paginator import EmptyPage
 from django.core.paginator import PageNotAnInteger
-# from headhunters.models import Headhunter # Maybe remove this
 from headhunters.models import Vacant
+
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+from django.utils.decorators import method_decorator
+from django.template.context_processors import csrf
+from django.template import RequestContext
+from django.http import HttpResponseRedirect
 
 class UnemployedHome(View):
     def get(self,request):
@@ -28,3 +34,16 @@ def listing(request):
         vacants = paginator.page(paginator.num_pages)
 
     return vacants
+
+def login_unemployed(request):
+    logout(request)
+    username = password = ''
+    if request.POST:
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(email=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect('/vacants/')
+    return render_to_response('unemployed_login.html', context_instance=RequestContext(request))

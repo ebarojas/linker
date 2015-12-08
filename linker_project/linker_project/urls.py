@@ -23,13 +23,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from headhunters.views import login_user
+from unemployeds.views import login_unemployed
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^users/$', HeadhunterHome.as_view(), name = "headhunter_home"),
     url(r'^vacants/$', UnemployedHome.as_view(), name = "unemployed_home"),
     url(r'^matches/$', MatchHome.as_view(), name = "match_home"),
-    url(r'^userlogin/$', login_user),
+    url(r'^head_login/$', login_user),
+    url(r'^unemployed_login/$', login_unemployed),
 ]
 
 

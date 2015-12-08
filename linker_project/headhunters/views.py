@@ -44,14 +44,11 @@ def login_user(request):
     if request.POST:
         username = request.POST['username']
         password = request.POST['password']
-
         user = authenticate(email=username, password=password)
-        print 'login method'
-        print user
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect('/vacants/')
+                return HttpResponseRedirect('/users/')
     return render_to_response('login.html', context_instance=RequestContext(request))
 
 # @login_required(login_url='/login/')
