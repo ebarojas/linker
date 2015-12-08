@@ -1,0 +1,36 @@
+[
+  {
+    "model": "headhunters.Headhunter",
+    "pk": 1,
+    "fields": {
+      "first_name": "Jack",
+      "last_name": "Black",
+      "email": "jackblack@beatles.com",
+      "phone": "56788909",
+      "location_lat": "124",
+      "location_lon": "124",
+      "linkedin_id": "12",
+      "headline": "The master of the Beatles",
+      "num_connections": "212",
+      "picture_url": "https://www.linkedin.com/profile/view?id=AAoAABc6P5ABELQ9jzk_StBHjKeCdsZik0OvVU4&authType=name&authToken=UGoM&trk=api*a3227641*s3301901*",
+      "password": "pbkdf2_sha256$20000$nI9wJw9pAVDu$CZCfxNvneszQfULgjPtwpC4EhSm8lWtgwZxZ+HlQ7Ik="
+    }
+  },
+  {
+    "model": "headhunters.Headhunter",
+    "pk": 2,
+    "fields": {
+      "first_name": "Paul",
+      "last_name": "Simon",
+      "email": "paulsimon@beatles.com",
+      "phone": "56788909",
+      "location_lat": "124",
+      "location_lon": "124",
+      "linkedin_id": "12",
+      "headline": "The master of the Beatles",
+      "num_connections": "212",
+      "picture_url": "https://www.linkedin.com/profile/view?id=AAoAABc6P5ABELQ9jzk_StBHjKeCdsZik0OvVU4&authType=name&authToken=UGoM&trk=api*a3227641*s3301901*",
+      "password": "pbkdf2_sha256$20000$nI9wJw9pAVDu$CZCfxNvneszQfULgjPtwpC4EhSm8lWtgwZxZ+HlQ7Ik="
+    }
+  }
+]
