@@ -8,7 +8,7 @@
     <div class="container">
         <h1>Hey yo</h1>
         <div id="login">
-            <form class="form-horizontal" name="LoginForm" action="/login/" method="post">
+            <form class="form-horizontal" name="LoginForm" action="/userlogin/" method="post">
             {% csrf_token %}
             {% if next %}
                 <input type="hidden" name="next" value="{{ next }}" />
