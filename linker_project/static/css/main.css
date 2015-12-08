@@ -1,0 +1,137 @@
+body {
+    background: #EFEFEF;
+}
+
+span{
+  text-align: center;
+}
+h5{
+  color:#359FCC;
+}
+
+/* Navigation bar */
+.navbar-default {
+    background-color: #FFFFFF;
+    border-radius: 0;
+    border: none;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.container {
+    max-width: 650px;
+}
+
+
+
+/* slide seccion */
+.slide {
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px 45px 30px 30px;
+}
+
+.profile-picture {
+    width: 30%;
+    border-radius: 50%;
+}
+
+.vacant-logo {
+    width: 50%;
+    margin-top: 15px;
+}
+
+.profile-details,
+.profile-skills {
+    margin-left: 3px;
+    margin-top: 15px;
+}
+
+.profile-details p {
+    text-align: justify;
+    font-size: 15px;
+    color: #6B6B6B;
+}
+
+.skill {
+    background: #009CF7;
+    padding: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    border-radius: 3px;
+}
+
+.slide-buttons {
+    margin-bottom: 56px;
+    background: #fff;
+    height: 119px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.bg-btn {
+    width: 100%;
+    color: #fff;
+    font-size: 35px;
+    background: #ccc;
+    text-align: center;
+    border-radius: 4px;
+    padding: 30px 10px;
+    margin-bottom: 10px;
+    border: none;
+}
+
+.bg-btn:hover {
+    text-decoration: none;
+    color: #fff
+}
+
+.bg-btn:active {
+    text-decoration: none;
+    color: #fff
+}
+
+
+.like-btn {
+    background: #4DA25F;
+}
+
+.dislike-btn {
+    background: #E47575;
+}
+
+.dislike-btn:hover {
+    background: #B33232;
+}
+
+.like-btn:hover {
+    background: #007719;
+}
+
+.disabled,
+.disabled:hover {
+  background: #C1C1C1;
+}
+
+/*  Match   */
+.match-views {
+    background: #fff;
+    border-radius: 4px;
+    padding: 30px 30px 30px 30px;
+}
+
+.row{
+    padding-bottom: 20px;
+}
+
+.profile-picture-match {
+    width: 80%;
+    border-radius: 20%;
+}
+.center-block>imagen{
+
+}

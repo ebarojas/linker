@@ -12,7 +12,9 @@ Download Vagrant 2 or higher from http://downloads.vagrantup.com/, install the p
 vagrant up
 
 vagrant ssh
+cd /vagrant
 
+You are ready to start!
 
 # Install Node
 sudo apt-get install build-essential

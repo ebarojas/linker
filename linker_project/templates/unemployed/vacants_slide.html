@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %} Vacants {% endblock %}
+
+
+{% block body %}
+    {% include 'nav.html' %}
+
+    <div class="container">
+        {% for vacant in vacants %}
+            <div class="slide" style="text-align:center">
+                <div class="slide-container">
+                    <div class="row">
+                        <div>
+                            <img class="vacant-logo" src="{{ vacant.picture.url }}">
+                        </div>
+                        <div>
+                            <h3>{{ vacant.name }}</h3>
+                            <h4>{{ vacant.location }}</h4>
+                        </div>
+                    </div>
+
+                    <div class="row profile-details">
+                        <h4>{{ vacant.headline }}</h4>
+                        <p>
+                            {{ vacant.details }}
+                        </p>
+                    </div>
+
+                    <div class="row profile-skills">
+                        <h4>Habilidades</h4>
+                        <span class="skill">Scrum</span>
+                        <span class="skill">Angularjs</span>
+                        <span class="skill">Elixir</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-buttons">
+                <div class="col-md-12">
+
+                    <!-- dislike -->
+                    <div class="col-md-6 col-xs-6">
+                      {% if vacants.has_next %}
+                        <a href="?page={{ vacants.next_page_number }}" class="bg-btn dislike-btn glyphicon glyphicon-remove"></a>
+                      {% else %}
+                        <a href="#" class="bg-btn dislike-btn glyphicon glyphicon-remove"></a>
+                      {% endif %}
+                    </div>
+
+                    <!-- Like -->
+                    <div class="col-md-6 col-xs-6">
+                      <form action='/vacants/' method="POST">
+                          {% csrf_token %}
+
+                          {% if vacants.has_next %}
+                            <input type="hidden" name="page" value="{{vacants.next_page_number}}" />
+                          {% else %}
+                            <input type="hidden" name="page" value="0">
+                          {% endif %}
+
+                          <input type="hidden" name="vacantId" value="{{ vacant.id }}" />
+                          <button type="submit" class="bg-btn like-btn glyphicon glyphicon-ok"></button>
+                      </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
