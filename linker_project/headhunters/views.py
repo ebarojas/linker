@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
-from django.shortcuts import render
-from django.shortcuts import render_to_response
+from django.shortcuts import render, render_to_response, redirect
+from django.core.urlresolvers import reverse
 from django.views.generic import View
 from django.core.paginator import Paginator
 from django.core.paginator import EmptyPage
@@ -8,6 +8,25 @@ from django.core.paginator import PageNotAnInteger
 from unemployeds.models import Unemployed
 from headhunters.models import Vacant
 from matches.models import VacantLike
+from headhunters.forms import Signup
+
+class HeadhunterSignup(View):
+    def get(self, request):
+        form = Signup()
+        return render(request, 'headhunter/signup.html', {'form': form})
+
+    def post(self, request):
+        form = Signup(request.POST)
+
+        if form.is_valid():
+            form_commit = form.save(commit=False)
+            form_commit.set_password(request.POST.get('password'))
+            form_commit.save()
+
+            return redirect(reverse('headhunter_home'))
+
+        return render(request, 'headgunter/signup.html', {'form': form})
+
 
 class HeadhunterHome(View):
     def get(self,request):

@@ -1,12 +1,12 @@
 # -*- encoding: utf-8 -*-
 
 from django import forms
-from unemployeds.models import Unemployed
+from headhunters.models import Headhunter
 
 
 class Signup(forms.ModelForm):
     class Meta:
-        model = Unemployed
+        model = Headhunter
         fields = [
             'first_name',
             'last_name',

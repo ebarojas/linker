@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from headhunters.views import HeadhunterHome
+from headhunters.views import HeadhunterHome, HeadhunterSignup
 from unemployeds.views import UnemployedHome, UnemployedSignup
 from matches.views import MatchHome
 
@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^vacants/$', UnemployedHome.as_view(), name = "unemployed_home"),
     url(r'^matches/$', MatchHome.as_view(), name = "match_home"),
     url(r'^users/signup/$', UnemployedSignup.as_view(), name = "unemployed_signup"),
+    url(r'^headhunters/signup/$', HeadhunterSignup.as_view(), name = "headhunter_signup"),
 ]
 
 

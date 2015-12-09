@@ -16,7 +16,7 @@ class UnemployedSignup(View):
         return render(request, 'unemployed/signup.html', {'form': form})
 
     def post(self, request):
-        form = Signup(request.POST, request.FILES)
+        form = Signup(request.POST)
 
         if form.is_valid():
             form_commit = form.save(commit=False)
