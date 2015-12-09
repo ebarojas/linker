@@ -42,7 +42,7 @@ class UnemployedHome(View):
         return render(request, 'unemployed/vacants_slide.html', {"vacants": vacants})
 
     def post(self, request):
-        user = Unemployed.objects.get(id=2) # Cambiar por sesion de usuario
+        user = Unemployed.objects.get(id=request.user.id)
         vacant = Vacant.objects.get(id=request.POST.get('vacantId'))
         like = UnemployedLike(vacant=vacant, unemployed=user)
         like.save()
@@ -53,7 +53,7 @@ class UnemployedHome(View):
 
 class UnemployedPublic(View):
     def get(self, request, *args, **kwargs):
-        vacant = Vacant.objects.get(id=1) # Cambiar por sesion de usuario
+        vacant = Vacant.objects.get(id=request.user.id)
         exists_match = self.validate_match(kwargs['user_id'], vacant)
 
         if not exists_match:

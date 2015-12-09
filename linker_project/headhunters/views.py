@@ -44,7 +44,7 @@ class HeadhunterHome(View):
         return render(request, 'headhunter/users_slides.html', {"users": users})
 
     def post(self, request):
-        vacant = Vacant.objects.get(id=1) # Cambiar por sesion de usuario
+        vacant = Vacant.objects.get(id=request.user.id)
         user = Unemployed.objects.get(id=request.POST.get('userId'))
         like = VacantLike(vacant=vacant, unemployed=user)
         like.save()
@@ -55,7 +55,7 @@ class HeadhunterHome(View):
 
 class VacantPublic(View):
     def get(self, request, *args, **kwargs):
-        user = Unemployed.objects.get(id=1) # Cambiar por sesion de usuario
+        user = Unemployed.objects.get(id=request.user.id)
         exists_match = self.validate_match(kwargs['vacant_id'], user)
 
         if not exists_match:
