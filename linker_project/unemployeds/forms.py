@@ -10,12 +10,8 @@ class Signup(forms.ModelForm):
             'last_name',
             'email',
             'password',
-            'phone',
-            'location',
-            'headline',
-            'picture_url'
         ]
-        
+
         widgets = {
             'first_name': forms.TextInput(attrs={
                 'placeholder': 'Write your first name'

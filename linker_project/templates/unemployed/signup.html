@@ -5,7 +5,8 @@
 {% block body %}
 
     <section>
-        <div class="sign-form col-md-4 col-md-offset-4">
+        <h2 id="logo-bg"><span style="color:#359FCC;">LINK</span><span style="color:#E47575;">ER</span></h1>
+        <div class="slide sign-form col-md-4 col-md-offset-4">
             <div class="sign-form-head">
                 Registrate en la red más grande de empleos
             </div>
@@ -14,7 +15,7 @@
             <form action='/users/signup/' method="POST" id="sign">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <input class="btn" type="submit" value="Registrarse" />
+                <input class="btn submit" type="submit" value="Registrarse" />
             </form>
         </div>
     </section>
