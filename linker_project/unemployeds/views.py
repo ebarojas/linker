@@ -10,12 +10,6 @@ from matches.models import UnemployedLike
 from unemployeds.models import Unemployed
 
 
-class UnemployedSignup (View):
-    def get(self, request):
-        form = Signup()
-        return render(request, 'unemployed/signup.html', {'form': form})
-
-
 class UnemployedHome(View):
     def get(self,request):
         vacants = listing(request)
