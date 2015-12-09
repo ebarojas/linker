@@ -1,12 +1,20 @@
 # -*- encoding: utf-8 -*-
-from django.shortcuts import render, render_to_response, redirect
+from django.shortcuts import render
+from django.shortcuts import render_to_response
 from django.views.generic import View
 from django.core.paginator import Paginator
 from django.core.paginator import EmptyPage
 from django.core.paginator import PageNotAnInteger
 from headhunters.models import Vacant
-from matches.models import UnemployedLike, Match
+from matches.models import UnemployedLike
 from unemployeds.models import Unemployed
+
+
+class UnemployedSignup (View):
+    def get(self, request):
+        form = Signup()
+        return render(request, 'unemployed/signup.html', {'form': form})
+
 
 class UnemployedHome(View):
     def get(self,request):
@@ -21,32 +29,6 @@ class UnemployedHome(View):
 
         vacants = listing(request)
         return render(request, 'unemployed/vacants_slide.html', {"vacants": vacants})
-
-
-
-class UnemployedPublic(View):
-    def get(self, request, *args, **kwargs):
-        vacant = Vacant.objects.get(id=2) # Cambiar por sesion de usuario
-        exists_match = self.validate_match(kwargs['user_id'], vacant)
-
-        if not exists_match:
-            return redirect('/users/')
-
-        user = Unemployed.objects.get(id=kwargs['user_id'])
-        return render(request, 'unemployed/public_profile.html', {
-            "user": user
-        })
-
-
-    def validate_match(self, user_id, vacant):
-        try:
-            user = Unemployed.objects.get(id=user_id)
-            match = Match.objects.get(unemployed=user, vacant=vacant)
-        except Exception as e:
-            return False
-
-        return True
-
 
 
 def listing(request):
