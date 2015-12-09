@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Signup {% endblock %}
+
+{% block body %}
+
+    <section>
+        <div class="sign-form col-md-4 col-md-offset-4">
+            <div class="sign-form-head">
+                Registrate en la red más grande de empleos
+            </div>
+
+
+            <form action='/users/signup/' method="POST" id="sign">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input class="btn" type="submit" value="Registrarse" />
+            </form>
+        </div>
+    </section>
+
+{% endblock %}

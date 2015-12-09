@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from headhunters.views import HeadhunterHome
-from unemployeds.views import UnemployedHome
+from unemployeds.views import UnemployedHome, UnemployedSignup
 from matches.views import MatchHome
 
 from django.conf import settings
@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^users/$', HeadhunterHome.as_view(), name = "headhunter_home"),
     url(r'^vacants/$', UnemployedHome.as_view(), name = "unemployed_home"),
     url(r'^matches/$', MatchHome.as_view(), name = "match_home"),
+    url(r'^users/signup/$', UnemployedSignup.as_view(), name = "unemployed_signup"),
 ]
 
 

@@ -10,11 +10,11 @@ class User(AbstractBaseUser):
     email = models.EmailField(max_length=320)
     phone = models.CharField(max_length=10)
     location = models.CharField(max_length=80)
-    location_lat = models.FloatField()
-    location_lon = models.FloatField()
+    location_lat = models.FloatField(default=0)
+    location_lon = models.FloatField(default=0)
     linkedin_id = models.CharField(max_length=255)
     headline = models.CharField(max_length=255)
-    num_connections = models.IntegerField()
+    num_connections = models.IntegerField(default=0)
     picture_url = models.CharField(max_length=320)
 
     USERNAME_FIELD = 'email'

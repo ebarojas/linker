@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
-from django.shortcuts import render
-from django.shortcuts import render_to_response
+from django.shortcuts import render, render_to_response, redirect
+from django.core.urlresolvers import reverse
 from django.views.generic import View
 from django.core.paginator import Paginator
 from django.core.paginator import EmptyPage
@@ -13,7 +13,20 @@ from unemployeds.forms import Signup
 class UnemployedSignup(View):
     def get(self, request):
         form = Signup()
-        return render(request, 'employee/signup.html', {'form': form})
+        return render(request, 'unemployed/signup.html', {'form': form})
+
+    def post(self, request):
+        form = Signup(request.POST, request.FILES)
+
+        if form.is_valid():
+            form_commit = form.save(commit=False)
+            form_commit.set_password(request.POST.get('password'))
+            form_commit.save()
+
+            return redirect(reverse('unemployed_home'))
+
+        return render(request, 'unemployed/signup.html', {'form': form})
+
 
 class UnemployedHome(View):
     def get(self,request):
