@@ -7,6 +7,7 @@
       "last_name": "Black",
       "email": "jackblack@beatles.com",
       "phone": "56788909",
+      "location": "Puerto Vallarta, Jalisco",
       "location_lat": "124",
       "location_lon": "124",
       "linkedin_id": "12",
@@ -24,6 +25,7 @@
       "last_name": "Simon",
       "email": "paulsimon@beatles.com",
       "phone": "56788909",
+      "location": "Culiacán, Sinaloa",
       "location_lat": "124",
       "location_lon": "124",
       "linkedin_id": "12",
@@ -43,6 +45,7 @@
       "location_lon": "124",
       "name": "Yoloo",
       "salary": "123555",
+      "headline": "This is the best job in the world",
       "details": "Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum",
       "picture": "https://www.linkedin.com/profile/view?id=AAoAABc6P5ABELQ9jzk_StBHjKeCdsZik0OvVU4&authType=name&authToken=UGoM&trk=api*a3227641*s3301901*"
     }
@@ -57,6 +60,7 @@
       "location_lon": "124",
       "name": "Yoloo",
       "salary": "123555",
+      "headline": "This is the worst job in the world",
       "details": "Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum",
       "picture": "https://www.linkedin.com/profile/view?id=AAoAABc6P5ABELQ9jzk_StBHjKeCdsZik0OvVU4&authType=name&authToken=UGoM&trk=api*a3227641*s3301901*"
     }
