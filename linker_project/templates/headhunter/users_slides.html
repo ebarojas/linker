@@ -17,16 +17,15 @@
                   </div>
                   <div class="row">
                       <div>
-                          <h3>{{ user.name }}</h3>
-                          <h4>Culiacán, Sinaloa</h4>
-                          <!-- <h4>{{ user.full_location }}</h4> -->
+                          <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+                          <h4>{{ user.location }}</h4>
                       </div>
                   </div>
 
                   <div class="row profile-details">
                       <h4>{{ user.headline }}</h4>
                       <p>
-                          {{ user.details }}
+                          {{ user.resume }}
                       </p>
                   </div>
 
@@ -41,20 +40,30 @@
 
           <div class="slide-buttons">
               <div class="col-md-12">
+
+                  <!-- dislike -->
                   <div class="col-md-6 col-xs-6">
                     {% if users.has_next %}
                       <a href="?page={{ users.next_page_number }}" class="bg-btn dislike-btn glyphicon glyphicon-remove"></a>
                     {% else %}
-                      <a href="#" class="bg-btn disabled dislike-btn glyphicon glyphicon-remove"></a>
+                      <a href="#" class="bg-btn dislike-btn glyphicon glyphicon-remove"></a>
                     {% endif %}
                   </div>
-                  <div class="col-md-6 col-xs-6">
-                    {% if users.has_next %}
-                      <a href="?page={{ users.next_page_number }}"><span class="bg-btn like-btn glyphicon glyphicon-ok"></span></a>
-                    {% else %}
-                      <a href="#"><span class="bg-btn disabled like-btn glyphicon glyphicon-ok"></span></a>
-                    {% endif %}
 
+                  <!-- Like -->
+                  <div class="col-md-6 col-xs-6">
+                    <form action='/users/' method="POST">
+                        {% csrf_token %}
+
+                        {% if users.has_next %}
+                          <input type="hidden" name="page" value="{{users.next_page_number}}" />
+                        {% else %}
+                          <input type="hidden" name="page" value="0">
+                        {% endif %}
+
+                        <input type="hidden" name="userId" value="{{ user.id }}" />
+                        <button type="submit" class="bg-btn like-btn glyphicon glyphicon-ok"></button>
+                    </form>
                   </div>
               </div>
           </div>

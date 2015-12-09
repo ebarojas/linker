@@ -7,42 +7,16 @@
 
     <div class="container">
         <div class="match-views">
+          <div class="row"><h1 class="match-title">Match</h1></div>
             <div class="slide-container ">
+
                 <div class="row">
-                    <div class="col-md-3">
-                      <a href="#"><img class="profile-picture-match center-block" src="https://scontent-atl3-1.xx.fbcdn.net/hphotos-xft1/t31.0-8/12291700_507653699414379_332209883022546186_o.jpg">
-                        <span><h5>Francisco Sanchez<h5></span></a>
+                  {% for match in matches %}
+                  <div class="col-md-3 spacer">
+                      <img class="profile-picture-match center-block" src="{{ match.unemployed.picture_url }}"/>
+                      <span class="center-block">{{ match.unemployed.first_name}} {{match.unemployed.last_name}}</span>
                     </div>
-                    <div class="col-md-3">
-                        <a href="#"><img class="profile-picture-match center-block" src="https://scontent-atl3-1.xx.fbcdn.net/hphotos-xft1/t31.0-8/12291700_507653699414379_332209883022546186_o.jpg">
-                        <span><h5>Francisco Sanchez<h5></span></a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="#"><img class="profile-picture-match center-block" src="https://scontent-atl3-1.xx.fbcdn.net/hphotos-xft1/t31.0-8/12291700_507653699414379_332209883022546186_o.jpg">
-                        <span><h5>Francisco Sanchez<h5></span></a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="#"><img class="profile-picture-match center-block" src="https://scontent-atl3-1.xx.fbcdn.net/hphotos-xft1/t31.0-8/12291700_507653699414379_332209883022546186_o.jpg">
-                        <span><h5>Francisco Sanchez<h5></span></a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <a href="#"><img class="profile-picture-match center-block" src="https://scontent-atl3-1.xx.fbcdn.net/hphotos-xft1/t31.0-8/12291700_507653699414379_332209883022546186_o.jpg">
-                        <span><h5>Francisco Sanchez<h5></span></a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="#"><img class="profile-picture-match center-block" src="https://scontent-atl3-1.xx.fbcdn.net/hphotos-xft1/t31.0-8/12291700_507653699414379_332209883022546186_o.jpg">
-                        <span><h5>Francisco Sanchez<h5></span></a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="#"><img class="profile-picture-match center-block" src="https://scontent-atl3-1.xx.fbcdn.net/hphotos-xft1/t31.0-8/12291700_507653699414379_332209883022546186_o.jpg">
-                        <span><h5>Francisco Sanchez<h5></span></a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="#"><img class="profile-picture-match center-block" src="https://scontent-atl3-1.xx.fbcdn.net/hphotos-xft1/t31.0-8/12291700_507653699414379_332209883022546186_o.jpg">
-                        <span><h5>Francisco Sanchez<h5></span></a>
-                    </div>
+                  {% endfor %}
                 </div>
             </div>
         </div>

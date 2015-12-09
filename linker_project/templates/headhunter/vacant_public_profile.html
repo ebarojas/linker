@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %} Vacants {% endblock %}
+
+
+{% block body %}
+    {% include 'nav.html' %}
+
+    <section id="vacant_public_profile">
+      <div class="container" style="text-align:center">
+
+        <img class="profile-picture" style="width: 15%;" src="{{ vacant.headhunter.picture_url }}"><br>
+        <h3 class="page-title">Contacta a {{ vacant.headhunter.first_name}} {{ vacant.headhunter.last_name}}</h3>
+        <hr>
+
+        <div class="slide">
+          <div class="slide-container">
+              <div class="row">
+                  <div>
+                      <img class="vacant-logo" src="{{ vacant.picture.url }}">
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div>
+                      <h4>{{ vacant.headhunter.email }}</h4>
+                      <h4>{{ vacant.headhunter.phone }}</h4>
+                      <h4>{{ vacant.headhunter.location }}</h4>
+                  </div>
+              </div>
+
+
+
+              <div class="row profile-details">
+                  <h4>{{ vacant.headline }}</h4>
+                  <p>
+                      {{ vacant.details }}
+                  </p>
+              </div>
+
+              <div class="row profile-skills">
+                  <h4>Habilidades</h4>
+                  <span class="skill">Scrum</span>
+                  <span class="skill">Angularjs</span>
+                  <span class="skill">Elixir</span>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

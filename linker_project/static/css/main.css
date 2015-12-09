@@ -2,15 +2,27 @@ body {
     background: #EFEFEF;
 }
 
+hr {
+  border-bottom: 3px solid #D8D8D8;
+}
+
 span{
   text-align: center;
 }
+
+
 h5{
   color:#359FCC;
 }
+p{
+  color:#6B6B6B;
+}
+h1{
+  text-align: center;
+
+}
 
 /* Navigation bar */
-
 .navbar-default {
     background-color: #FFFFFF;
     border-radius: 0;
@@ -29,20 +41,30 @@ h5{
 
 
 /* slide seccion */
-
 .slide {
     background: #fff;
     border-radius: 4px;
     padding: 20px 45px 30px 30px;
 }
 
-.profile-picture {
+.page-title {
+  color: #797979;
+}
+
+.profile-picture,
+.public-profile-picture {
     width: 30%;
     border-radius: 50%;
 }
 
+.public-profile-picture {
+  border-radius: 20%;
+}
+
+
 .vacant-logo {
     width: 50%;
+    margin-top: 15px;
 }
 
 .profile-details,
@@ -83,6 +105,7 @@ h5{
     border-radius: 4px;
     padding: 30px 10px;
     margin-bottom: 10px;
+    border: none;
 }
 
 .bg-btn:hover {
@@ -132,6 +155,63 @@ h5{
     width: 80%;
     border-radius: 20%;
 }
-.center-block>imagen{
+.name_unemployed{
+    font-size: 1em;
+}
+.spacer{
+  padding-bottom: 15px;
+}
 
+
+/* Signup form */
+#logo-bg {
+  text-align: center;
+  font-family: inherit;
+  margin-top: 5%;
+  font-weight: bold;
+  font-size: 45px;
+}
+
+.sign-form {
+  margin-top: 1%;
+}
+
+.sign-form-head {
+    text-align: center;
+    margin: 7px 0px 20px 0;
+    font-size: 16px;
+    color: #929292;
+}
+
+.sign-form form input[type="text"],
+.sign-form form input[type="email"],
+.sign-form form input[type="password"] {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 3px;
+  border: 2px solid #ccc;
+  margin-bottom: 5px;
+}
+
+
+.submit {
+  width: 100%;
+  padding: 10px;
+  background: #4DA25F;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.submit:hover {
+  color: #fff;
+  background: #007719;
+}
+
+.errorlist {
+    padding: 0;
+    list-style: none;
+    color: #C51F1F;
+    font-weight: bold;
 }
