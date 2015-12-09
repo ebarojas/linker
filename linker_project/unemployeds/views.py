@@ -9,6 +9,7 @@ from headhunters.models import Vacant
 from matches.models import UnemployedLike
 from unemployeds.models import Unemployed
 
+
 class UnemployedHome(View):
     def get(self,request):
         vacants = listing(request)
@@ -31,7 +32,7 @@ def listing(request):
 
     try:
         vacants = paginator.page(page)
-    except PageNotAnInteger: 
+    except PageNotAnInteger:
         # If page is not an integer, deliver first page.
         vacants = paginator.page(1)
     except EmptyPage:
