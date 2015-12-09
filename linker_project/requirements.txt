@@ -1,0 +1,27 @@
+Django==1.8.2
+Fabric==1.10.1
+Pillow==2.8.1
+SOAPpy==0.12.0
+argparse==1.2.1
+chardet==2.0.1
+## FIXME: could not find svn URL in dependency_links for this package:
+distribute==0.6.24dev-r0
+django-appconf==1.0.1
+django-bower==5.0.4
+django-imagekit==3.2.6
+ecdsa==0.13
+fpconst==0.7.2
+lxml==3.4.4
+paramiko==1.15.2
+pilkit==1.1.12
+pycrypto==2.6.1
+python-apt==0.8.8.2
+python-debian==0.1.21
+python-debianbts==1.11
+pytz==2015.4
+reportbug==6.4.4
+requests==2.7.0
+six==1.9.0
+uWSGI==2.0.10
+virtualenv==13.0.1
+wsgiref==0.1.2
