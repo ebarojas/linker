@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
-from django.shortcuts import render
-from django.shortcuts import render_to_response
+from django.shortcuts import render, render_to_response, redirect
+from django.core.urlresolvers import reverse
 from django.views.generic import View
 from django.core.paginator import Paginator
 from django.core.paginator import EmptyPage
@@ -8,6 +8,25 @@ from django.core.paginator import PageNotAnInteger
 from headhunters.models import Vacant
 from matches.models import UnemployedLike
 from unemployeds.models import Unemployed
+from unemployeds.forms import Signup
+
+class UnemployedSignup(View):
+    def get(self, request):
+        form = Signup()
+        return render(request, 'unemployed/signup.html', {'form': form})
+
+    def post(self, request):
+        form = Signup(request.POST)
+
+        if form.is_valid():
+            form_commit = form.save(commit=False)
+            form_commit.set_password(request.POST.get('password'))
+            form_commit.save()
+
+            return redirect(reverse('unemployed_home'))
+
+        return render(request, 'unemployed/signup.html', {'form': form})
+
 
 
 class UnemployedHome(View):
@@ -23,6 +42,30 @@ class UnemployedHome(View):
 
         vacants = listing(request)
         return render(request, 'unemployed/vacants_slide.html', {"vacants": vacants})
+
+
+class UnemployedPublic(View):
+    def get(self, request, *args, **kwargs):
+        vacant = Vacant.objects.get(id=1) # Cambiar por sesion de usuario
+        exists_match = self.validate_match(kwargs['user_id'], vacant)
+
+        if not exists_match:
+            return redirect('/users/')
+
+        user = Unemployed.objects.get(id=kwargs['user_id'])
+        return render(request, 'unemployed/public_profile.html', {
+            "user": user
+        })
+
+
+    def validate_match(self, user_id, vacant):
+        try:
+            user = Unemployed.objects.get(id=user_id)
+            match = Match.objects.get(unemployed=user, vacant=vacant)
+        except Exception as e:
+            return False
+
+        return True
 
 
 def listing(request):
