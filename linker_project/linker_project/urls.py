@@ -23,15 +23,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from headhunters.views import login_user
-from unemployeds.views import login_unemployed
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^users/$', HeadhunterHome.as_view(), name = "headhunter_home"),
-    url(r'^vacants/$', UnemployedHome.as_view(), name = "unemployed_home"),
-    url(r'^matches/$', MatchHome.as_view(), name = "match_home"),
-    url(r'^head_login/$', login_user),
-    url(r'^unemployed_login/$', login_unemployed),
+    url(r'^users/$', login_required(HeadhunterHome.as_view(), login_url='/login/'), name = "headhunter_home"),
+    url(r'^vacants/$', login_required(UnemployedHome.as_view(), login_url='/login/'), name = "unemployed_home"),
+    url(r'^matches/$', login_required(MatchHome.as_view(), login_url='/login/'), name = "match_home"),
+    url(r'^login/$', login_user),
 ]
 
 

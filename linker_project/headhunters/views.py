@@ -16,12 +16,16 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.template.context_processors import csrf
 
+from headhunters.models import Headhunter
+from unemployeds.models import Unemployed
+
 class HeadhunterHome(View):
     def get(self,request):
         users = listing(request)
         return render_to_response('headhunter/users_slides.html', {"users": users})
 
 
+@login_required(login_url='/login/')
 def listing(request):
     user_list = Unemployed.objects.all()
     paginator = Paginator(user_list, 1)
@@ -47,9 +51,10 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect('/users/')
+                if isinstance(user, Headhunter):
+                    return HttpResponseRedirect('/users/')
+                elif isinstance(user, Unemployed):
+                    return HttpResponseRedirect('/vacants/')
+                else:
+                    return HttpResponseRedirect('/login/')
     return render_to_response('login.html', context_instance=RequestContext(request))
-
-# @login_required(login_url='/login/')
-# def main(request):
-#     ....

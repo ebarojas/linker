@@ -19,6 +19,7 @@ class UnemployedHome(View):
         vacants = listing(request)
         return render_to_response('unemployed/vacants_slide.html', {"vacants": vacants})
 
+@login_required(login_url='/login/')
 def listing(request):
     vacant_list = Vacant.objects.all()
     paginator = Paginator(vacant_list, 1) # Show 1 contacts per page
@@ -34,16 +35,3 @@ def listing(request):
         vacants = paginator.page(paginator.num_pages)
 
     return vacants
-
-def login_unemployed(request):
-    logout(request)
-    username = password = ''
-    if request.POST:
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(email=username, password=password)
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                return HttpResponseRedirect('/vacants/')
-    return render_to_response('unemployed_login.html', context_instance=RequestContext(request))
