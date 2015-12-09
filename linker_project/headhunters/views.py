@@ -25,12 +25,25 @@ class HeadhunterSignup(View):
         return render(request, 'headhunter/signup.html', {'form': form})
 
     def post(self, request):
+        logout(request) #not sure if necessary
         form = Signup(request.POST)
 
         if form.is_valid():
             form_commit = form.save(commit=False)
             form_commit.set_password(request.POST.get('password'))
             form_commit.save()
+            # Login user
+            username = request.POST['email']
+            password = request.POST['password']
+
+            user = authenticate(email=username, password=password)
+            login(request, user)
+            if isinstance(user, Headhunter):
+                return HttpResponseRedirect('/users/')
+            elif isinstance(user, Unemployed):
+                return HttpResponseRedirect('/vacants/')
+            else:
+                return HttpResponseRedirect('/login/')
 
             return redirect(reverse('headhunter_home'))
 
@@ -85,11 +98,11 @@ def listing(request):
     page = request.GET.get('page') if request.GET.get('page') else request.POST.get('page')
 
     try:
-        users = paginator.page(page)
+        vacants = paginator.page(page)
     except PageNotAnInteger:
-        users = paginator.page(1)
+        vacants = paginator.page(1)
     except EmptyPage:
-        users = paginator.page(paginator.num_pages)
+        vacants = paginator.page(paginator.num_pages)
     return vacants
 
 
