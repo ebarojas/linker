@@ -8,6 +8,12 @@ from django.core.paginator import PageNotAnInteger
 from headhunters.models import Vacant
 from matches.models import UnemployedLike
 from unemployeds.models import Unemployed
+from unemployeds.forms import Signup
+
+class UnemployedSignup(View):
+    def get(self, request):
+        form = Signup()
+        return render(request, 'employee/signup.html', {'form': form})
 
 class UnemployedHome(View):
     def get(self,request):
@@ -31,7 +37,7 @@ def listing(request):
 
     try:
         vacants = paginator.page(page)
-    except PageNotAnInteger: 
+    except PageNotAnInteger:
         # If page is not an integer, deliver first page.
         vacants = paginator.page(1)
     except EmptyPage:
