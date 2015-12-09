@@ -32,5 +32,33 @@
       "picture_url": "https://www.linkedin.com/profile/view?id=AAoAABc6P5ABELQ9jzk_StBHjKeCdsZik0OvVU4&authType=name&authToken=UGoM&trk=api*a3227641*s3301901*",
       "password": "pbkdf2_sha256$20000$nI9wJw9pAVDu$CZCfxNvneszQfULgjPtwpC4EhSm8lWtgwZxZ+HlQ7Ik="
     }
+  },
+  {
+    "model": "headhunters.Vacant",
+    "pk": 1,
+    "fields": {
+      "headhunter": 1,
+      "posted_date": "2015-12-09 00:35:11.848970",
+      "location_lat": "124",
+      "location_lon": "124",
+      "name": "Yoloo",
+      "salary": "123555",
+      "details": "Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum",
+      "picture": "https://www.linkedin.com/profile/view?id=AAoAABc6P5ABELQ9jzk_StBHjKeCdsZik0OvVU4&authType=name&authToken=UGoM&trk=api*a3227641*s3301901*"
+    }
+  },
+  {
+    "model": "headhunters.Vacant",
+    "pk": 2,
+    "fields": {
+      "headhunter": 2,
+      "posted_date": "2015-12-09 00:35:11.848970",
+      "location_lat": "124",
+      "location_lon": "124",
+      "name": "Yoloo",
+      "salary": "123555",
+      "details": "Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum",
+      "picture": "https://www.linkedin.com/profile/view?id=AAoAABc6P5ABELQ9jzk_StBHjKeCdsZik0OvVU4&authType=name&authToken=UGoM&trk=api*a3227641*s3301901*"
+    }
   }
 ]
