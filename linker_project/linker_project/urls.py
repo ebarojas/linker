@@ -28,9 +28,9 @@ from django.contrib.auth.decorators import login_required
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login/$', login_user),
-    url(r'^users/$', HeadhunterHome.as_view(), name = "headhunter_home"),
-    url(r'^vacants/$', UnemployedHome.as_view(), name = "unemployed_home"),
-    url(r'^matches/$', MatchHome.as_view(), name = "match_home"),
+    url(r'^users/$', login_required(HeadhunterHome.as_view(), login_url='/login/'), name = "headhunter_home"),
+    url(r'^vacants/$', login_required(UnemployedHome.as_view(), login_url='/login/'), name = "unemployed_home"),
+    url(r'^matches/$', login_required(MatchHome.as_view(), login_url='/login/'), name = "match_home"),
     url(r'^users/signup/$', UnemployedSignup.as_view(), name = "unemployed_signup"),
     url(r'^headhunters/signup/$', HeadhunterSignup.as_view(), name = "headhunter_signup"),
     url(r'^users/(?P<user_id>\d+)/$', UnemployedPublic.as_view(), name='unemployed_public'),
