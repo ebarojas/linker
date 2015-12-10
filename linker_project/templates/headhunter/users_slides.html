@@ -1,12 +1,12 @@
-
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block title %} Users {% endblock %}
 
 
 {% block body %}
     {% include 'nav.html' %}
-    <div class="container">
+    <div class="container" id='content'>
         {% for user in users %}
           <div class="slide" style="text-align:center">
               <div class="slide-container">
@@ -37,7 +37,6 @@
                   </div>
               </div>
           </div>
-
           <div class="slide-buttons">
               <div class="col-md-12">
 
@@ -46,7 +45,7 @@
                     {% if users.has_next %}
                       <a href="?page={{ users.next_page_number }}" class="bg-btn dislike-btn glyphicon glyphicon-remove"></a>
                     {% else %}
-                      <a href="#" class="bg-btn dislike-btn glyphicon glyphicon-remove"></a>
+                      <a href="#" class="bg-btn dislike-btn glyphicon glyphicon-remove" id='hideshow'></a>
                     {% endif %}
                   </div>
 
@@ -54,13 +53,11 @@
                   <div class="col-md-6 col-xs-6">
                     <form action='/users/' method="POST">
                         {% csrf_token %}
-
                         {% if users.has_next %}
                           <input type="hidden" name="page" value="{{users.next_page_number}}" />
                         {% else %}
                           <input type="hidden" name="page" value="0">
                         {% endif %}
-
                         <input type="hidden" name="userId" value="{{ user.id }}" />
                         <button type="submit" class="bg-btn like-btn glyphicon glyphicon-ok"></button>
                     </form>
@@ -69,4 +66,20 @@
           </div>
         {% endfor %}
     </div>
+    <div id='more'>
+      <h1>Por el momento, ya no hay más usuarios!</h1>
+    </div>
+
+<script type="text/javascript" src="{% static 'jquery/dist/jquery.js'%}"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#more').toggle('show');
+    $('#hideshow').on('click', function(event) {
+      $('#content').toggle('show');
+      $('#more').toggle('show');
+    });
+  });
+
+</script>
+
 {% endblock %}
