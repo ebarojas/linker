@@ -128,3 +128,9 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('/login/')
+
+def home(request):
+    if isinstance(request.user, Headhunter):
+        return HttpResponseRedirect('/users/')
+    elif isinstance(request.user, Unemployed):
+        return HttpResponseRedirect('/vacants/')

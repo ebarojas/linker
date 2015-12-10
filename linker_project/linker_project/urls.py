@@ -21,13 +21,14 @@ from matches.views import MatchHome
 from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.conf.urls.static import static
-
+from headhunters.views import home
 from headhunters.views import login_user, logout_user
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login/$', login_user),
+    url(r'^home/$', home),
     url(r'^logout/$', logout_user),
     url(r'^users/$', login_required(HeadhunterHome.as_view(), login_url='/login/'), name = "headhunter_home"),
     url(r'^vacants/$', login_required(UnemployedHome.as_view(), login_url='/login/'), name = "unemployed_home"),
