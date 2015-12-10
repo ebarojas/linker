@@ -123,3 +123,8 @@ def login_user(request):
                 else:
                     return HttpResponseRedirect('/login/')
     return render_to_response('login.html', context_instance=RequestContext(request))
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('/login/')

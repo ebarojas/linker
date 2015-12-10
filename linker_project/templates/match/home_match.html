@@ -10,14 +10,31 @@
           <div class="row"><h1 class="match-title">Match</h1></div>
             <div class="slide-container ">
 
+              {% if role == 'headhunter'%}
                 <div class="row">
                   {% for match in matches %}
-                  <div class="col-md-3 spacer">
-                      <img class="profile-picture-match center-block" src="{{ match.unemployed.picture_url }}"/>
-                      <span class="center-block">{{ match.unemployed.first_name}} {{match.unemployed.last_name}}</span>
+                    <div class="col-md-3 spacer">
+                      <a href="/users/{{match.unemployed.id}}">
+                        <img class="profile-picture-match center-block" src="{{ match.unemployed.picture_url }}"/>
+                        <span class="center-block">{{ match.unemployed.first_name}} {{match.unemployed.last_name}}</span>
+                      </a>
                     </div>
                   {% endfor %}
                 </div>
+
+              {% else %}
+
+                <div class="row">
+                  {% for match in matches %}
+                    <div class="col-md-3 spacer">
+                      <a href="/vacants/{{match.vacant.id}}">
+                        <img class="vacant-logo center-block" src="{{ match.vacant.picture.url }}"/>
+                        <span class="center-block">{{ match.vacant.name}}</span>
+                      </a>
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
             </div>
         </div>
     </div>
