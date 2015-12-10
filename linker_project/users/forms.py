@@ -40,15 +40,17 @@ class UnemployedProfile(forms.ModelForm):
             'phone',
             'location',
             'headline',
-            'picture_url'
+            'picture_url',
+            'resume'
         ]
 
         labels = {
-            'first_name': 'Nombres:',
-            'last_name': 'Apellidos:',
-            'email': 'Correo electrónico:',
-            'phone': 'Teléfono de contacto: ',
-            'location': '¿Donde vives?: ',
+            'first_name': 'Nombres',
+            'last_name': 'Apellidos',
+            'email': 'Correo electrónico',
+            'phone': 'Teléfono de contacto',
+            'location': '¿Donde vives?',
             'headline': '¿A que te dedicas?',
-            'picture_url': 'Foto de perfil(URL): '
+            'picture_url': 'Foto de perfil(URL)',
+            'resume': 'Estracto profesional'
         }

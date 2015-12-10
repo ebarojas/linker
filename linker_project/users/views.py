@@ -9,20 +9,23 @@ from unemployeds.models import Unemployed
 class Profile(View):
     def get(self, request):
         if isinstance(request.user, Headhunter):
-            form = HeadhunterProfile()
+            form = HeadhunterProfile(instance=request.user)
         else:
-            form = UnemployedProfile()
+            form = UnemployedProfile(instance=request.user)
 
         return render(request, 'user/edit_profile.html', {'form': form})
 
     def post(self, request):
         if isinstance(request.user, Headhunter):
-            form = HeadhunterProfile(request.POST)
+            form = HeadhunterProfile(request.POST, instance=request.user)
         else:
-            form = UnemployedProfile(request.POST)
+            form = UnemployedProfile(request.POST, instance=request.user)
 
         if form.is_valid():
             form.save()
-            return redirect('/home')
+            return render(request, 'user/edit_profile.html', {
+                'form': form,
+                'updated': True
+            })
 
         return render(request, 'user/edit_profile.html', {'form': form})

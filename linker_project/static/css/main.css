@@ -2,6 +2,13 @@ body {
     background: #EFEFEF;
 }
 
+h6 {
+  font-size: 14px;
+  text-align: center;
+  color: #3AC17F;
+  margin: -17px 0px 20px 0px;
+}
+
 hr {
   border-bottom: 3px solid #D8D8D8;
 }
