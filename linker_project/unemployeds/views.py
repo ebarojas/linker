@@ -7,7 +7,7 @@ from django.core.paginator import EmptyPage
 from django.core.paginator import PageNotAnInteger
 from headhunters.models import Vacant
 from headhunters.models import Headhunter
-from matches.models import UnemployedLike
+from matches.models import UnemployedLike, Match
 from unemployeds.models import Unemployed
 from unemployeds.forms import Signup
 from django.contrib.auth.decorators import login_required
@@ -34,7 +34,7 @@ class UnemployedSignup(View):
             username = request.POST['email']
             password = request.POST['password']
 
-            user = authenticate(email=username, password=password)            
+            user = authenticate(email=username, password=password)
             login(request, user)
             if isinstance(user, Headhunter):
                 return HttpResponseRedirect('/users/')
@@ -67,7 +67,7 @@ class UnemployedHome(View):
 
 class UnemployedPublic(View):
     def get(self, request, *args, **kwargs):
-        vacant = Vacant.objects.get(id=request.user.id)
+        vacant = Vacant.objects.get(headhunter=request.user)
         exists_match = self.validate_match(kwargs['user_id'], vacant)
 
         if not exists_match:
