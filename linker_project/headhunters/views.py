@@ -63,13 +63,10 @@ class HeadhunterHome(View):
         like.save()
 
         users = listing(request)
-        print users.has_next()
         if users.has_next():
-            print 'yolo'
             return render(request, 'headhunter/users_slides.html', {"users": users})
         else:
-            print 'noko'
-            return HttpResponse('')
+            return render(request, 'headhunter/users_slides.html', {"users": users})
 
 class VacantPublic(View):
     def get(self, request, *args, **kwargs):
