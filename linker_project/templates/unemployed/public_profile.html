@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %} Vacants {% endblock %}
+
+
+{% block body %}
+    {% include 'nav.html' %}
+
+    <section id="public_profile">
+      <div class="container" style="text-align:center">
+
+        <h3 class="page-title">Contacta a {{ user.first_name }} {{ user.last_name }}</h3>
+        <hr>
+
+        <div class="slide">
+          <div class="slide-container">
+              <div class="row">
+                  <div>
+                      <img class="public-profile-picture" src="{{ user.picture_url }}">
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div>
+                      <h4>{{ user.email }}</h4>
+                      <h4>{{ user.phone }}</h4>
+                      <h4>{{ user.location }}</h4>
+                  </div>
+              </div>
+
+
+
+              <div class="row profile-details">
+                  <h4>{{ user.headline }}</h4>
+                  <p>
+                      {{ user.resume }}
+                  </p>
+              </div>
+
+              <div class="row profile-skills">
+                  <h4>Habilidades</h4>
+                  <span class="skill">Scrum</span>
+                  <span class="skill">Angularjs</span>
+                  <span class="skill">Elixir</span>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}
