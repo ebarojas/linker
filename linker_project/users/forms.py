@@ -54,3 +54,7 @@ class UnemployedProfile(forms.ModelForm):
             'picture_url': 'Foto de perfil(URL)',
             'resume': 'Estracto profesional'
         }
+
+        widgets = {
+            'resume': forms.Textarea(attrs={'rows': 4})
+        }
