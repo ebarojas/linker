@@ -57,7 +57,7 @@ class HeadhunterHome(View):
         return render(request, 'headhunter/users_slides.html', {"users": users})
 
     def post(self, request):
-        vacant = Vacant.objects.get(id=request.user.id)
+        vacant = Vacant.objects.get(headhunter=request.user)
         user = Unemployed.objects.get(id=request.POST.get('userId'))
         like = VacantLike(vacant=vacant, unemployed=user)
         like.save()

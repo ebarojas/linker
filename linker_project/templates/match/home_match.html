@@ -15,6 +15,7 @@
                   {% for match in matches %}
                     <div class="col-md-3 spacer">
                       <a href="/users/{{match.unemployed.id}}">
+
                         <img class="profile-picture-match center-block" src="{{ match.unemployed.picture_url }}"/>
                         <span class="match-name center-block">{{ match.unemployed.first_name}} {{match.unemployed.last_name}}</span>
                       </a>
@@ -27,6 +28,7 @@
                 <div class="row">
                   {% for match in matches %}
                     <div class="col-md-3 spacer">
+                      <span class="globe">NEW</span>
                       <a href="/vacants/{{match.vacant.id}}">
                         <img style="width:100%;" class="vacant-logo center-block" src="{{ match.vacant.picture.url }}"/>
                         <span class="match-name center-block">{{ match.vacant.name}}</span>
