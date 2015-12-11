@@ -192,7 +192,8 @@ h1{
 
 .sign-form form input[type="text"],
 .sign-form form input[type="email"],
-.sign-form form input[type="password"] {
+.sign-form form input[type="password"],
+.sign-form form textarea {
   width: 100%;
   padding: 8px 12px;
   border-radius: 3px;
