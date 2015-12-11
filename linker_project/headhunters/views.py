@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 from django.shortcuts import render, render_to_response, redirect
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import View
 from django.core.paginator import Paginator
 from django.core.paginator import EmptyPage
@@ -63,8 +63,10 @@ class HeadhunterHome(View):
         like.save()
 
         users = listing(request)
-        return render(request, 'headhunter/users_slides.html', {"users": users})
-
+        if users.has_next():
+            return render(request, 'headhunter/users_slides.html', {"users": users})
+        else:
+            return render(request, 'headhunter/users_slides.html', {"users": users})
 
 class VacantPublic(View):
     def get(self, request, *args, **kwargs):

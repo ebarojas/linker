@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block title %} Vacants {% endblock %}
 
 
 {% block body %}
     {% include 'nav.html' %}
-
-    <div class="container">
+    <div class="container" id='content'>
         {% for vacant in vacants %}
             <div class="slide" style="text-align:center">
                 <div class="slide-container">
@@ -44,7 +44,7 @@
                       {% if vacants.has_next %}
                         <a href="?page={{ vacants.next_page_number }}" class="bg-btn dislike-btn glyphicon glyphicon-remove"></a>
                       {% else %}
-                        <a href="#" class="bg-btn dislike-btn glyphicon glyphicon-remove"></a>
+                        <a href="#" class="bg-btn dislike-btn glyphicon glyphicon-remove" id='hideshow'></a>
                       {% endif %}
                     </div>
 
@@ -67,4 +67,30 @@
             </div>
         {% endfor %}
     </div>
+    <div id='more'>
+      <h1>Por el momento, ya no hay más vacantes, ¡revisa más tarde!</h1>
+      <!-- <form action='/users/' method="POST">
+          <input type="submit" value="Vuelve a intentar">
+      </form> -->
+    </div>
+
+<script type="text/javascript" src="{% static 'jquery/dist/jquery.js'%}"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    // $('#more').toggle('show');
+    console.log({{ vacants.paginator.count }});
+    console.log({{ vacants.number }});
+    $('#more').hide();
+    if ({{ vacants.number }} === {{ vacants.paginator.count }}) {
+      $('#more').show();
+      $('#content').toggle('show');
+    }
+    // This function is redundant, will fix it later.
+    $('#hideshow').on('click', function(event) {
+      $('#content').toggle('show');
+      $('#more').toggle('show');
+    });
+  });
+
+</script>
 {% endblock %}
