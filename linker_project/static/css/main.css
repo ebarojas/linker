@@ -7,6 +7,13 @@ body {
     background: #EFEFEF;
 }
 
+h6 {
+  font-size: 14px;
+  text-align: center;
+  color: #3AC17F;
+  margin: -17px 0px 20px 0px;
+}
+
 hr {
   border-bottom: 3px solid #D8D8D8;
 }
@@ -191,7 +198,8 @@ h1{
 
 .sign-form form input[type="text"],
 .sign-form form input[type="email"],
-.sign-form form input[type="password"] {
+.sign-form form input[type="password"],
+.sign-form form textarea {
   width: 100%;
   padding: 8px 12px;
   border-radius: 3px;
