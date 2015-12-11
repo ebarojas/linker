@@ -67,7 +67,7 @@ class UnemployedHome(View):
 
 class UnemployedPublic(View):
     def get(self, request, *args, **kwargs):
-        vacant = Vacant.objects.get(headhunter=request.user)
+        vacant = Vacant.objects.filter(headhunter=request.user)[:1]
         exists_match = self.validate_match(kwargs['user_id'], vacant)
 
         if not exists_match:
