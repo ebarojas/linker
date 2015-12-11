@@ -240,9 +240,9 @@ h1{
   font-family: 'Roboto', sans-serif;
   font-size: 7px;
   font-weight: bold;
-  width: 20px;
-  height: 20px;
-  background-color: #359FCC;
+  width: 15px;
+  height: 15px;
+  background-color: red;
   display: block;
   border-radius: 50%;
   text-align: center;
@@ -250,5 +250,5 @@ h1{
   padding-top:5px;
   z-index:  999;
   position: absolute;
-  margin-bottom:30px;
+  right: 0;
 }
