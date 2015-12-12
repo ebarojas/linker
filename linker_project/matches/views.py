@@ -12,7 +12,7 @@ class MatchHome(View):
 
         if isinstance(request.user, Headhunter):
 
-            matches = Match.objects.filter(vacant=Vacant.objects.filter(headhunter=request.user)[:1])
+            matches = Match.objects.filter(vacant=Vacant.objects.filter(headhunter=request.user))
 
             role = 'headhunter'
         else:

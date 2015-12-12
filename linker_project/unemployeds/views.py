@@ -69,9 +69,9 @@ class UnemployedPublic(View):
     def get(self, request, *args, **kwargs):
         vacant = Vacant.objects.filter(headhunter=request.user)[:1]
         exists_match = self.validate_match(kwargs['user_id'], vacant)
-
+        print(vacant)
         if not exists_match:
-            return redirect('/users/')
+            return redirect(reverse("match_home"))
 
         user = Unemployed.objects.get(id=kwargs['user_id'])
         return render(request, 'unemployed/public_profile.html', {
@@ -83,6 +83,9 @@ class UnemployedPublic(View):
         try:
             user = Unemployed.objects.get(id=user_id)
             match = Match.objects.get(unemployed=user, vacant=vacant)
+            print(user)
+            match.new = False
+            match.save()
         except Exception as e:
             return False
 

@@ -5,6 +5,7 @@
 {% block body %}
     {% include 'nav.html' %}
 
+
     <div class="container">
         <div class="match-views">
           <div class="row"><h1 class="match-title">Match</h1></div>
@@ -14,7 +15,9 @@
                 <div class="row">
                   {% for match in matches %}
                     <div class="col-md-3 spacer">
+                    {% if match.new %}
                     <span class="globe"></span>
+                    {% endif %}
                       <a href="/users/{{match.unemployed.id}}">
                         <img class="profile-picture-match center-block" src="{{ match.unemployed.picture_url }}"/>
                         <span class="match-name center-block">{{ match.unemployed.first_name}} {{match.unemployed.last_name}}</span>
@@ -28,7 +31,9 @@
                 <div class="row">
                   {% for match in matches %}
                     <div class="col-md-3 spacer">
-                      <span class="globe"></span>
+  {% if match.new %}
+                        <span class="globe"></span>
+  {% endif %}
                       <a href="/vacants/{{match.vacant.id}}">
                         <img style="width:100%;" class="vacant-logo center-block" src="{{ match.vacant.picture.url }}"/>
                         <span class="match-name center-block">{{ match.vacant.name}}</span>
