@@ -7,6 +7,7 @@ class Match(models.Model):
     vacant = models.ForeignKey('headhunters.Vacant')
     unemployed = models.ForeignKey('unemployeds.Unemployed')
     date = models.DateTimeField(default=datetime.now)
+    new = models.BooleanField(default=True)
 
 
 class VacantLike(models.Model):
