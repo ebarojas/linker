@@ -28,6 +28,7 @@ from users.views import Profile
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', login_user),
     url(r'^login/$', login_user),
     url(r'^home/$', home),
     url(r'^logout/$', logout_user),
