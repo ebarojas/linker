@@ -2,7 +2,7 @@
 from django.shortcuts import render, render_to_response, redirect
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
-from django.views.generic import View
+from django.views.generic import View, CreateView
 from django.core.paginator import Paginator
 from django.core.paginator import EmptyPage
 from django.core.paginator import PageNotAnInteger
@@ -16,8 +16,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.utils.decorators import method_decorator
 from django.template.context_processors import csrf
 
-from headhunters.models import Headhunter
+from headhunters.models import Headhunter, Vacant
 from unemployeds.models import Unemployed
+from headhunters.forms import AddVacant
 
 class HeadhunterSignup(View):
     def get(self, request):
@@ -134,3 +135,20 @@ def home(request):
         return HttpResponseRedirect('/users/')
     elif isinstance(request.user, Unemployed):
         return HttpResponseRedirect('/vacants/')
+
+class VacantSignUp(View):
+    def get(self, request):
+        form = AddVacant()
+        return render(request, 'headhunter/new_vacant.html', {'form': form})
+
+    def post(self, request):
+        form = AddVacant(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.instance.headhunter = request.user
+            form.save()
+            return redirect ('/home')
+        return render(request, 'headhunter/new_vacant.html', {'form': form})
+
+
+

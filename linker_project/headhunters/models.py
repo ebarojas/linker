@@ -13,13 +13,13 @@ class Vacant(models.Model):
     headhunter = models.ForeignKey('headhunters.Headhunter')
     posted_date = models.DateTimeField(default=datetime.now)
     location = models.CharField(max_length=80)
-    location_lat = models.FloatField()
-    location_lon = models.FloatField()
+    location_lat = models.FloatField(default=0)
+    location_lon = models.FloatField(default=0)
     name = models.CharField(max_length=320)
     salary = models.FloatField()
     headline = models.CharField(max_length=255)
     details = models.CharField(max_length=500)
-    picture = models.ImageField()
+    picture = models.ImageField(upload_to='vacants_pics')
 
     def __str__(self):
         return self.name

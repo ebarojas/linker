@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 from django import forms
-from headhunters.models import Headhunter
+from headhunters.models import Headhunter, Vacant
 
 
 class Signup(forms.ModelForm):
@@ -34,3 +34,39 @@ class Signup(forms.ModelForm):
                 'placeholder': 'Ej. ****************'
             }),
         }
+
+
+class AddVacant(forms.ModelForm):
+    class Meta:
+        model = Vacant
+        fields = [
+            'location',
+            'name',
+            'salary',
+            'headline',
+            'details',
+            'picture',
+        ]
+
+        labels = {
+            'location': '¿En qué ciudad es el empleo?:',
+            'name': 'Nombre de la empresa:',
+            'salary': 'Salario:',
+            'headline' : '¿Qué estás buscado? (Vacante)',
+            'details': 'Detalles de la Vacante:',
+            'picture': 'Imagen:',
+        }
+
+        widgets = {
+            'location': forms.TextInput(attrs={
+            }),
+            'name': forms.TextInput(attrs={
+            }),
+            'salary': forms.TextInput(attrs={
+            }),
+            'headline': forms.TextInput(attrs={
+            }),
+            'details': forms.TextInput(attrs={
+            }),
+        }
+
