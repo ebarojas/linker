@@ -12,7 +12,8 @@ class MatchHome(View):
 
         if isinstance(request.user, Headhunter):
 
-            matches = Match.objects.filter(vacant=Vacant.objects.get(headhunter=request.user))
+            matches = Match.objects.filter(vacant=Vacant.objects.filter(headhunter=request.user)[:1])
+
             role = 'headhunter'
         else:
             matches = Match.objects.filter(unemployed=request.user)
