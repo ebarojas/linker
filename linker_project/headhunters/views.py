@@ -57,7 +57,7 @@ class HeadhunterHome(View):
         return render(request, 'headhunter/users_slides.html', {"users": users})
 
     def post(self, request):
-        vacant = Vacant.objects.get(id=request.user.id)
+        vacant = Vacant.objects.get(headhunter=request.user)
         user = Unemployed.objects.get(id=request.POST.get('userId'))
         like = VacantLike(vacant=vacant, unemployed=user)
         like.save()
@@ -74,18 +74,20 @@ class VacantPublic(View):
         exists_match = self.validate_match(kwargs['vacant_id'], user)
 
         if not exists_match:
-            return redirect('/vacants/')
+            return redirect(reverse("match_home"))
 
         vacant = Vacant.objects.get(id=kwargs['vacant_id'])
+        vacant.new = False
         return render(request, 'headhunter/vacant_public_profile.html', {
             "vacant": vacant
         })
-
 
     def validate_match(self, vacant_id, user):
         try:
             vacant = Vacant.objects.get(id=vacant_id)
             match = Match.objects.get(unemployed=user, vacant=vacant)
+            match.new = False
+            match.save()
         except Exception as e:
             return False
 
